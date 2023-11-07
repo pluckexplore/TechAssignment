@@ -1,23 +1,25 @@
 import Foundation
 import CoreData
 
-enum StorageDataProviderError: Error {
-    case fetchFailed
-    case savingFailed
-}
-
 final class StorageDataProvider {
-
-    static let shared: StorageDataProvider = StorageDataProvider()
     
-    private let context = CoreDataStack(modelName: "DataModel").managedContext
+    enum DataError: Error {
+        case fetchFailed
+        case savingFailed
+    }
+    
+    private static let modelName = "DataModel"
+    
+    private let context = CoreDataStack(modelName: StorageDataProvider.modelName).managedContext
     
     private lazy var childContext: NSManagedObjectContext = {
         let childContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         childContext.parent = context
         return childContext
     }()
-    
+}
+
+extension StorageDataProvider  {
     func fetchStoredUsers() throws -> [User] {
         do {
             let request = User.fetchRequest() as NSFetchRequest
@@ -32,7 +34,7 @@ final class StorageDataProvider {
             let savedUsers = try context.fetch(request)
             return savedUsers
         } catch {
-            throw StorageDataProviderError.fetchFailed
+            throw DataError.fetchFailed
         }
     }
     
@@ -55,13 +57,14 @@ final class StorageDataProvider {
         context.delete(user)
         try? saveContext()
     }
-    
+}
+
+private extension StorageDataProvider {
     func saveContext() throws {
         do {
             try context.save()
         } catch {
-            throw StorageDataProviderError.savingFailed
+            throw DataError.savingFailed
         }
     }
 }
-

@@ -9,7 +9,7 @@ class CoreDataStack {
         let container = NSPersistentContainer(name: modelName)
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
-                debugPrint("Unresolved error, \(error.userInfo)")
+                fatalError("Failed to load the database!")
             }
         }
         return container
@@ -21,16 +21,6 @@ class CoreDataStack {
     
     init(modelName: String) {
         self.modelName = modelName
-    }
-    
-    func saveContext() {
-        guard managedContext.hasChanges else { return }
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            debugPrint("Unresolved error, \(error.userInfo)")
-        }
     }
 }
 
