@@ -43,6 +43,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEEBF0B82AFB8624006F86CE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CEF142002AFA84DF00309980 /* CoreDataStack.swift */,
+				CEEBF0B92AFB869A006F86CE /* Providers */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CEEBF0B92AFB869A006F86CE /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				CEF142022AFA84FA00309980 /* StorageDataProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 		CEF141D92AFA809100309980 = {
 			isa = PBXGroup;
 			children = (
@@ -64,9 +81,8 @@
 			children = (
 				CEF141F92AFA80E800309980 /* App */,
 				CEF141FA2AFA841700309980 /* Model */,
+				CEEBF0B82AFB8624006F86CE /* Services */,
 				CEF141E92AFA809100309980 /* ViewController.swift */,
-				CEF142002AFA84DF00309980 /* CoreDataStack.swift */,
-				CEF142022AFA84FA00309980 /* StorageDataProvider.swift */,
 				CEF141EE2AFA809300309980 /* Assets.xcassets */,
 				CEF141F02AFA809300309980 /* LaunchScreen.storyboard */,
 				CEF141F32AFA809300309980 /* Info.plist */,
