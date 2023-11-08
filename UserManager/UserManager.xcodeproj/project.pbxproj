@@ -12,6 +12,10 @@
 		CEF141EA2AFA809100309980 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141E92AFA809100309980 /* ViewController.swift */; };
 		CEF141EF2AFA809300309980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF141EE2AFA809300309980 /* Assets.xcassets */; };
 		CEF141F22AFA809300309980 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF141F02AFA809300309980 /* LaunchScreen.storyboard */; };
+		CEF141FC2AFA843100309980 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141FB2AFA843100309980 /* UserData.swift */; };
+		CEF141FF2AFA845600309980 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEF141FD2AFA845600309980 /* DataModel.xcdatamodeld */; };
+		CEF142012AFA84DF00309980 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF142002AFA84DF00309980 /* CoreDataStack.swift */; };
+		CEF142032AFA84FA00309980 /* StorageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF142022AFA84FA00309980 /* StorageDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		CEF141EE2AFA809300309980 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEF141F12AFA809300309980 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEF141F32AFA809300309980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF141FB2AFA843100309980 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		CEF141FE2AFA845600309980 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		CEF142002AFA84DF00309980 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		CEF142022AFA84FA00309980 /* StorageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEEBF0B82AFB8624006F86CE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CEF142002AFA84DF00309980 /* CoreDataStack.swift */,
+				CEEBF0B92AFB869A006F86CE /* Providers */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CEEBF0B92AFB869A006F86CE /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				CEF142022AFA84FA00309980 /* StorageDataProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 		CEF141D92AFA809100309980 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				CEF141F92AFA80E800309980 /* App */,
+				CEF141FA2AFA841700309980 /* Model */,
+				CEEBF0B82AFB8624006F86CE /* Services */,
 				CEF141E92AFA809100309980 /* ViewController.swift */,
 				CEF141EE2AFA809300309980 /* Assets.xcassets */,
 				CEF141F02AFA809300309980 /* LaunchScreen.storyboard */,
@@ -70,6 +97,15 @@
 				CEF141E72AFA809100309980 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		CEF141FA2AFA841700309980 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEF141FB2AFA843100309980 /* UserData.swift */,
+				CEF141FD2AFA845600309980 /* DataModel.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +179,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF141EA2AFA809100309980 /* ViewController.swift in Sources */,
+				CEF141FF2AFA845600309980 /* DataModel.xcdatamodeld in Sources */,
 				CEF141E62AFA809100309980 /* AppDelegate.swift in Sources */,
+				CEF142032AFA84FA00309980 /* StorageDataProvider.swift in Sources */,
+				CEF142012AFA84DF00309980 /* CoreDataStack.swift in Sources */,
+				CEF141FC2AFA843100309980 /* UserData.swift in Sources */,
 				CEF141E82AFA809100309980 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +397,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CEF141FD2AFA845600309980 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CEF141FE2AFA845600309980 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = CEF141FE2AFA845600309980 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CEF141DA2AFA809100309980 /* Project object */;
 }
