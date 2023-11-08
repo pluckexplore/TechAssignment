@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEEBF0BB2AFBA10D006F86CE /* NetworkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */; };
 		CEF141E62AFA809100309980 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141E52AFA809100309980 /* AppDelegate.swift */; };
 		CEF141E82AFA809100309980 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141E72AFA809100309980 /* SceneDelegate.swift */; };
 		CEF141EA2AFA809100309980 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141E92AFA809100309980 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataProvider.swift; sourceTree = "<group>"; };
 		CEF141E22AFA809100309980 /* UserManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF141E52AFA809100309980 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF141E72AFA809100309980 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 		CEEBF0B92AFB869A006F86CE /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */,
 				CEF142022AFA84FA00309980 /* StorageDataProvider.swift */,
 			);
 			path = Providers;
@@ -181,6 +184,7 @@
 				CEF141EA2AFA809100309980 /* ViewController.swift in Sources */,
 				CEF141FF2AFA845600309980 /* DataModel.xcdatamodeld in Sources */,
 				CEF141E62AFA809100309980 /* AppDelegate.swift in Sources */,
+				CEEBF0BB2AFBA10D006F86CE /* NetworkDataProvider.swift in Sources */,
 				CEF142032AFA84FA00309980 /* StorageDataProvider.swift in Sources */,
 				CEF142012AFA84DF00309980 /* CoreDataStack.swift in Sources */,
 				CEF141FC2AFA843100309980 /* UserData.swift in Sources */,
