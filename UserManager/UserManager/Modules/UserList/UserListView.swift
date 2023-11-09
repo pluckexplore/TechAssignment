@@ -4,12 +4,12 @@ final class UserListContentViewCell: UITableViewCell, ReusableView {}
 
 final class UserListController: UIViewController {
     
-    private let userListFetcher: UserListFetcher
-    
     var viewModel: UserListViewModelProtocol? {
         didSet {
-            viewModel?.listDidChange = { [weak self] _ in
-                self?.contentTableView.reloadData()
+            viewModel?.didUpdate = { [weak self] in
+                Task { @MainActor in
+                    self?.contentTableView.reloadData()
+                }
             }
         }
     }
@@ -27,27 +27,7 @@ final class UserListController: UIViewController {
         contentTableView.delegate = self
         contentTableView.dataSource = self
         contentTableView.register(UserListContentViewCell.self, forCellReuseIdentifier: UserListContentViewCell.reuseIdentifier)
-        getRemoteUsers()
-    }
-    
-    init(fetcher: UserListFetcher) {
-        self.userListFetcher = fetcher
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func getRemoteUsers() {
-        Task {
-            do {
-                let users: [UserData] = try await userListFetcher.getRemoteUsers()
-                viewModel?.addUsers(users)
-            } catch {
-                debugPrint(error)
-            }
-        }
+        viewModel?.model?.triggerListUpdate()
     }
 }
 

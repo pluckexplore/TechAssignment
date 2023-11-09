@@ -1,28 +1,25 @@
 import Foundation
 
 protocol UserListViewModelProtocol {
-    var model: UserListModel? { get }
-    var listDidChange: ((UserListViewModelProtocol) -> ())? { get set }
-    init(model: UserListModel)
-    func addUsers(_ users: [UserData])
+    var model: UserListModelProtocol? { get }
+    var didUpdate: (() -> Void)? { get set }
+    func triggerModelUpdate()
 }
 
 class UserListViewModel: UserListViewModelProtocol {
     
-    var model: UserListModel? {
+    var model: UserListModelProtocol? {
         didSet {
-            listDidChange?(self)
+            model?.listDidChange = { [weak self] in
+                self?.didUpdate?()
+            }
         }
     }
     
-    var listDidChange: ((UserListViewModelProtocol) -> ())?
-    
-    required init(model: UserListModel) {
-        self.model = model
-    }
+    var didUpdate: (() -> Void)?
 
-    func addUsers(_ users: [UserData]) {
-        model?.users.append(contentsOf: users)
+    func triggerModelUpdate() {
+        model?.triggerListUpdate()
     }
 }
 

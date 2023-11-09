@@ -7,7 +7,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UserListModuleBuilder.buildView()
+        let engine = DIContainer.shared.resolve(type: UserListEngine.self)
+        let userListController = UserListModuleBuilder.buildView(engine: engine)
+        let navigationController = UINavigationController(rootViewController: userListController)
+        window?.rootViewController = navigationController
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
     }

@@ -19,8 +19,8 @@ final class StorageDataProvider {
     }()
 }
 
-extension StorageDataProvider  {
-    func fetchStoredUsers() throws -> [User] {
+extension StorageDataProvider {
+    func fetchAllUsers() throws -> [User] {
         do {
             let request = User.fetchRequest() as NSFetchRequest
             let compareSelector = #selector(NSString.localizedStandardCompare(_:))
@@ -31,8 +31,20 @@ extension StorageDataProvider  {
                     selector: compareSelector
                 )
             ]
-            let savedUsers = try context.fetch(request)
-            return savedUsers
+            let users = try context.fetch(request)
+            return users
+        } catch {
+            throw DataError.fetchFailed
+        }
+    }
+    
+    func checkIfAlreadyExists(userWithEmail email: String) throws -> Bool {
+        do {
+            let request = User.fetchRequest() as NSFetchRequest
+            request.predicate = NSPredicate(format: "email == %@", email)
+            request.fetchLimit = 1
+            let count = try context.count(for: request)
+            return count > 0
         } catch {
             throw DataError.fetchFailed
         }
@@ -42,14 +54,14 @@ extension StorageDataProvider  {
         return User(context: childContext)
     }
     
-    func saveUser(_ user: User, withName name: String, withEmail email: String) {
+    func saveUser(_ user: User, withName name: String, withEmail email: String) throws {
         user.name = name
         user.email = email
         do {
             try childContext.save()
             try saveContext()
         } catch {
-            debugPrint(error)
+            throw DataError.savingFailed
         }
     }
     

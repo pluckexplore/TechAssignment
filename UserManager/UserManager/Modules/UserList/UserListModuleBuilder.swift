@@ -1,17 +1,11 @@
 import Foundation
 
-struct UserListModule {
-    let model: UserListModel
-    let viewModel: UserListViewModelProtocol
-    let view: UserListController
-}
-
 final class UserListModuleBuilder {
-    static func buildView() -> UserListController {
-        let fetcher = UserListFetcher()
-        let model = UserListModel(users: fetcher.getLocalUsers())
-        let viewModel = UserListViewModel(model: model)
-        let view = UserListController(fetcher: fetcher)
+    static func buildView(engine: UserListEngine) -> UserListController {
+        let model = UserListModel(engine: engine)
+        let viewModel = UserListViewModel()
+        viewModel.model = model
+        let view = UserListController()
         view.viewModel = viewModel
         return view
     }

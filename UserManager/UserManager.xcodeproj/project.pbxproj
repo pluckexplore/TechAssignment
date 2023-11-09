@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CECDB1F92AFCDC7300E7A24A /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDB1F82AFCDC7300E7A24A /* DIContainer.swift */; };
+		CECDB1FB2AFCDCC700E7A24A /* DIContainerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDB1FA2AFCDCC700E7A24A /* DIContainerConfig.swift */; };
 		CEEBF0BB2AFBA10D006F86CE /* NetworkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */; };
 		CEEBF0C02AFBBB5F006F86CE /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0BF2AFBBB5F006F86CE /* UserListView.swift */; };
 		CEEBF0C52AFBBBD9006F86CE /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0C42AFBBBD9006F86CE /* UserListViewModel.swift */; };
 		CEEBF0C82AFBBC5F006F86CE /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0C72AFBBC5F006F86CE /* ReusableView.swift */; };
 		CEEBF0CA2AFBC203006F86CE /* UserListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0C92AFBC203006F86CE /* UserListModuleBuilder.swift */; };
 		CEEBF0CC2AFBC43B006F86CE /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0CB2AFBC43B006F86CE /* UserListModel.swift */; };
-		CEEBF0D02AFBFEF4006F86CE /* UserListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0CF2AFBFEF4006F86CE /* UserListFetcher.swift */; };
-		CEEBF0D32AFC0F15006F86CE /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = CEEBF0D22AFC0F15006F86CE /* Collections */; };
-		CEEBF0D52AFC0F15006F86CE /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = CEEBF0D42AFC0F15006F86CE /* DequeModule */; };
-		CEEBF0D72AFC0F15006F86CE /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = CEEBF0D62AFC0F15006F86CE /* OrderedCollections */; };
+		CEEBF0D02AFBFEF4006F86CE /* UserListEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0CF2AFBFEF4006F86CE /* UserListEngine.swift */; };
 		CEF141E62AFA809100309980 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141E52AFA809100309980 /* AppDelegate.swift */; };
 		CEF141E82AFA809100309980 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141E72AFA809100309980 /* SceneDelegate.swift */; };
 		CEF141EF2AFA809300309980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF141EE2AFA809300309980 /* Assets.xcassets */; };
@@ -27,13 +26,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CECDB1F82AFCDC7300E7A24A /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		CECDB1FA2AFCDCC700E7A24A /* DIContainerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainerConfig.swift; sourceTree = "<group>"; };
 		CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataProvider.swift; sourceTree = "<group>"; };
 		CEEBF0BF2AFBBB5F006F86CE /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		CEEBF0C42AFBBBD9006F86CE /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		CEEBF0C72AFBBC5F006F86CE /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		CEEBF0C92AFBC203006F86CE /* UserListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModuleBuilder.swift; sourceTree = "<group>"; };
 		CEEBF0CB2AFBC43B006F86CE /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
-		CEEBF0CF2AFBFEF4006F86CE /* UserListFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListFetcher.swift; sourceTree = "<group>"; };
+		CEEBF0CF2AFBFEF4006F86CE /* UserListEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListEngine.swift; sourceTree = "<group>"; };
 		CEF141E22AFA809100309980 /* UserManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF141E52AFA809100309980 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF141E72AFA809100309980 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,15 +51,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEBF0D32AFC0F15006F86CE /* Collections in Frameworks */,
-				CEEBF0D52AFC0F15006F86CE /* DequeModule in Frameworks */,
-				CEEBF0D72AFC0F15006F86CE /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CECDB1F72AFCDC1C00E7A24A /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				CECDB1F82AFCDC7300E7A24A /* DIContainer.swift */,
+				CECDB1FA2AFCDCC700E7A24A /* DIContainerConfig.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
 		CEEBF0B92AFB869A006F86CE /* Providers */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +105,7 @@
 		CEEBF0CD2AFBFEA7006F86CE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				CEEBF0CF2AFBFEF4006F86CE /* UserListFetcher.swift */,
+				CEEBF0CF2AFBFEF4006F86CE /* UserListEngine.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 			children = (
 				CEF141E52AFA809100309980 /* AppDelegate.swift */,
 				CEF141E72AFA809100309980 /* SceneDelegate.swift */,
+				CECDB1F72AFCDC1C00E7A24A /* DIContainer */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -170,9 +178,6 @@
 			);
 			name = UserManager;
 			packageProductDependencies = (
-				CEEBF0D22AFC0F15006F86CE /* Collections */,
-				CEEBF0D42AFC0F15006F86CE /* DequeModule */,
-				CEEBF0D62AFC0F15006F86CE /* OrderedCollections */,
 			);
 			productName = UserManager;
 			productReference = CEF141E22AFA809100309980 /* UserManager.app */;
@@ -203,7 +208,6 @@
 			);
 			mainGroup = CEF141D92AFA809100309980;
 			packageReferences = (
-				CEEBF0D12AFC0F15006F86CE /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = CEF141E32AFA809100309980 /* Products */;
 			projectDirPath = "";
@@ -237,8 +241,10 @@
 				CEF141E62AFA809100309980 /* AppDelegate.swift in Sources */,
 				CEEBF0BB2AFBA10D006F86CE /* NetworkDataProvider.swift in Sources */,
 				CEF142032AFA84FA00309980 /* StorageDataProvider.swift in Sources */,
+				CECDB1F92AFCDC7300E7A24A /* DIContainer.swift in Sources */,
 				CEF142012AFA84DF00309980 /* CoreDataStack.swift in Sources */,
-				CEEBF0D02AFBFEF4006F86CE /* UserListFetcher.swift in Sources */,
+				CECDB1FB2AFCDCC700E7A24A /* DIContainerConfig.swift in Sources */,
+				CEEBF0D02AFBFEF4006F86CE /* UserListEngine.swift in Sources */,
 				CEEBF0CA2AFBC203006F86CE /* UserListModuleBuilder.swift in Sources */,
 				CEEBF0C02AFBBB5F006F86CE /* UserListView.swift in Sources */,
 				CEEBF0CC2AFBC43B006F86CE /* UserListModel.swift in Sources */,
@@ -455,35 +461,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		CEEBF0D12AFC0F15006F86CE /* XCRemoteSwiftPackageReference "swift-collections" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-collections.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.5;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CEEBF0D22AFC0F15006F86CE /* Collections */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CEEBF0D12AFC0F15006F86CE /* XCRemoteSwiftPackageReference "swift-collections" */;
-			productName = Collections;
-		};
-		CEEBF0D42AFC0F15006F86CE /* DequeModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CEEBF0D12AFC0F15006F86CE /* XCRemoteSwiftPackageReference "swift-collections" */;
-			productName = DequeModule;
-		};
-		CEEBF0D62AFC0F15006F86CE /* OrderedCollections */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CEEBF0D12AFC0F15006F86CE /* XCRemoteSwiftPackageReference "swift-collections" */;
-			productName = OrderedCollections;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CEF141FD2AFA845600309980 /* DataModel.xcdatamodeld */ = {
