@@ -7,28 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEBB3DF02AFE5420009A9C5A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DEF2AFE5420009A9C5A /* Router.swift */; };
+		CEBB3DF22AFE54A8009A9C5A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DF12AFE54A8009A9C5A /* AppConstants.swift */; };
+		CECDB1F92AFCDC7300E7A24A /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDB1F82AFCDC7300E7A24A /* DIContainer.swift */; };
+		CECDB1FB2AFCDCC700E7A24A /* DIContainerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDB1FA2AFCDCC700E7A24A /* DIContainerConfig.swift */; };
 		CEEBF0BB2AFBA10D006F86CE /* NetworkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */; };
+		CEEBF0C02AFBBB5F006F86CE /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0BF2AFBBB5F006F86CE /* UserListView.swift */; };
+		CEEBF0C52AFBBBD9006F86CE /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0C42AFBBBD9006F86CE /* UserListViewModel.swift */; };
+		CEEBF0C82AFBBC5F006F86CE /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0C72AFBBC5F006F86CE /* ReusableCell.swift */; };
+		CEEBF0CA2AFBC203006F86CE /* UserListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0C92AFBC203006F86CE /* UserListModuleBuilder.swift */; };
+		CEEBF0CC2AFBC43B006F86CE /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0CB2AFBC43B006F86CE /* UserListModel.swift */; };
+		CEEBF0D02AFBFEF4006F86CE /* UsersEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0CF2AFBFEF4006F86CE /* UsersEngine.swift */; };
 		CEF141E62AFA809100309980 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141E52AFA809100309980 /* AppDelegate.swift */; };
 		CEF141E82AFA809100309980 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141E72AFA809100309980 /* SceneDelegate.swift */; };
-		CEF141EA2AFA809100309980 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141E92AFA809100309980 /* ViewController.swift */; };
 		CEF141EF2AFA809300309980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF141EE2AFA809300309980 /* Assets.xcassets */; };
 		CEF141F22AFA809300309980 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF141F02AFA809300309980 /* LaunchScreen.storyboard */; };
-		CEF141FC2AFA843100309980 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF141FB2AFA843100309980 /* UserData.swift */; };
 		CEF141FF2AFA845600309980 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEF141FD2AFA845600309980 /* DataModel.xcdatamodeld */; };
 		CEF142012AFA84DF00309980 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF142002AFA84DF00309980 /* CoreDataStack.swift */; };
 		CEF142032AFA84FA00309980 /* StorageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF142022AFA84FA00309980 /* StorageDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CEBB3DEF2AFE5420009A9C5A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		CEBB3DF12AFE54A8009A9C5A /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		CECDB1F82AFCDC7300E7A24A /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		CECDB1FA2AFCDCC700E7A24A /* DIContainerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainerConfig.swift; sourceTree = "<group>"; };
 		CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataProvider.swift; sourceTree = "<group>"; };
+		CEEBF0BF2AFBBB5F006F86CE /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		CEEBF0C42AFBBBD9006F86CE /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		CEEBF0C72AFBBC5F006F86CE /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
+		CEEBF0C92AFBC203006F86CE /* UserListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModuleBuilder.swift; sourceTree = "<group>"; };
+		CEEBF0CB2AFBC43B006F86CE /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
+		CEEBF0CF2AFBFEF4006F86CE /* UsersEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersEngine.swift; sourceTree = "<group>"; };
 		CEF141E22AFA809100309980 /* UserManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF141E52AFA809100309980 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF141E72AFA809100309980 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CEF141E92AFA809100309980 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEF141EE2AFA809300309980 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEF141F12AFA809300309980 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEF141F32AFA809300309980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEF141FB2AFA843100309980 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		CEF141FE2AFA845600309980 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		CEF142002AFA84DF00309980 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CEF142022AFA84FA00309980 /* StorageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataProvider.swift; sourceTree = "<group>"; };
@@ -45,13 +61,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CEEBF0B82AFB8624006F86CE /* Services */ = {
+		CECDB1F72AFCDC1C00E7A24A /* DIContainer */ = {
 			isa = PBXGroup;
 			children = (
-				CEF142002AFA84DF00309980 /* CoreDataStack.swift */,
-				CEEBF0B92AFB869A006F86CE /* Providers */,
+				CECDB1F82AFCDC7300E7A24A /* DIContainer.swift */,
+				CECDB1FA2AFCDCC700E7A24A /* DIContainerConfig.swift */,
 			);
-			path = Services;
+			path = DIContainer;
 			sourceTree = "<group>";
 		};
 		CEEBF0B92AFB869A006F86CE /* Providers */ = {
@@ -61,6 +77,42 @@
 				CEF142022AFA84FA00309980 /* StorageDataProvider.swift */,
 			);
 			path = Providers;
+			sourceTree = "<group>";
+		};
+		CEEBF0BC2AFBB94B006F86CE /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CEBB3DEF2AFE5420009A9C5A /* Router.swift */,
+				CEEBF0BD2AFBB97D006F86CE /* UserList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CEEBF0BD2AFBB97D006F86CE /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				CEEBF0C92AFBC203006F86CE /* UserListModuleBuilder.swift */,
+				CEEBF0CB2AFBC43B006F86CE /* UserListModel.swift */,
+				CEEBF0BF2AFBBB5F006F86CE /* UserListView.swift */,
+				CEEBF0C42AFBBBD9006F86CE /* UserListViewModel.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		CEEBF0C62AFBBC4E006F86CE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CEEBF0C72AFBBC5F006F86CE /* ReusableCell.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CEEBF0CD2AFBFEA7006F86CE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CEEBF0CF2AFBFEF4006F86CE /* UsersEngine.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		CEF141D92AFA809100309980 = {
@@ -83,9 +135,12 @@
 			isa = PBXGroup;
 			children = (
 				CEF141F92AFA80E800309980 /* App */,
-				CEF141FA2AFA841700309980 /* Model */,
-				CEEBF0B82AFB8624006F86CE /* Services */,
-				CEF141E92AFA809100309980 /* ViewController.swift */,
+				CECDB1F72AFCDC1C00E7A24A /* DIContainer */,
+				CEEBF0C62AFBBC4E006F86CE /* Extensions */,
+				CEEBF0BC2AFBB94B006F86CE /* Modules */,
+				CEF141FA2AFA841700309980 /* CoreData */,
+				CEEBF0B92AFB869A006F86CE /* Providers */,
+				CEEBF0CD2AFBFEA7006F86CE /* Utils */,
 				CEF141EE2AFA809300309980 /* Assets.xcassets */,
 				CEF141F02AFA809300309980 /* LaunchScreen.storyboard */,
 				CEF141F32AFA809300309980 /* Info.plist */,
@@ -98,17 +153,18 @@
 			children = (
 				CEF141E52AFA809100309980 /* AppDelegate.swift */,
 				CEF141E72AFA809100309980 /* SceneDelegate.swift */,
+				CEBB3DF12AFE54A8009A9C5A /* AppConstants.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		CEF141FA2AFA841700309980 /* Model */ = {
+		CEF141FA2AFA841700309980 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				CEF141FB2AFA843100309980 /* UserData.swift */,
+				CEF142002AFA84DF00309980 /* CoreDataStack.swift */,
 				CEF141FD2AFA845600309980 /* DataModel.xcdatamodeld */,
 			);
-			path = Model;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +183,8 @@
 			dependencies = (
 			);
 			name = UserManager;
+			packageProductDependencies = (
+			);
 			productName = UserManager;
 			productReference = CEF141E22AFA809100309980 /* UserManager.app */;
 			productType = "com.apple.product-type.application";
@@ -155,6 +213,8 @@
 				Base,
 			);
 			mainGroup = CEF141D92AFA809100309980;
+			packageReferences = (
+			);
 			productRefGroup = CEF141E32AFA809100309980 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -181,13 +241,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEF141EA2AFA809100309980 /* ViewController.swift in Sources */,
+				CEEBF0C52AFBBBD9006F86CE /* UserListViewModel.swift in Sources */,
+				CEEBF0C82AFBBC5F006F86CE /* ReusableCell.swift in Sources */,
 				CEF141FF2AFA845600309980 /* DataModel.xcdatamodeld in Sources */,
 				CEF141E62AFA809100309980 /* AppDelegate.swift in Sources */,
 				CEEBF0BB2AFBA10D006F86CE /* NetworkDataProvider.swift in Sources */,
 				CEF142032AFA84FA00309980 /* StorageDataProvider.swift in Sources */,
+				CECDB1F92AFCDC7300E7A24A /* DIContainer.swift in Sources */,
+				CEBB3DF02AFE5420009A9C5A /* Router.swift in Sources */,
 				CEF142012AFA84DF00309980 /* CoreDataStack.swift in Sources */,
-				CEF141FC2AFA843100309980 /* UserData.swift in Sources */,
+				CECDB1FB2AFCDCC700E7A24A /* DIContainerConfig.swift in Sources */,
+				CEEBF0D02AFBFEF4006F86CE /* UsersEngine.swift in Sources */,
+				CEBB3DF22AFE54A8009A9C5A /* AppConstants.swift in Sources */,
+				CEEBF0CA2AFBC203006F86CE /* UserListModuleBuilder.swift in Sources */,
+				CEEBF0C02AFBBB5F006F86CE /* UserListView.swift in Sources */,
+				CEEBF0CC2AFBC43B006F86CE /* UserListModel.swift in Sources */,
 				CEF141E82AFA809100309980 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
