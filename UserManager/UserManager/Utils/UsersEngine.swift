@@ -5,7 +5,7 @@ struct UserData: Decodable, Hashable {
     let email: String
 }
 
-final class UserListEngine {
+final class UsersEngine {
     
     enum SavingError: Error {
         case alreadyExists
@@ -19,7 +19,7 @@ final class UserListEngine {
     }
 }
 
-extension UserListEngine {
+extension UsersEngine {
     func getUsersFromStorage() -> [UserData] {
         do {
             let users = try storage.fetchAllUsers()
@@ -28,29 +28,6 @@ extension UserListEngine {
             debugPrint(error)
             return []
         }
-    }
-    
-    func merge() async throws {
-        let remoteUsers = try await getRemoteUsers()
-        for userData in remoteUsers {
-            let result = try saveUser(withData: userData)
-            switch result {
-            case .success:
-                continue
-            case .failure(let error):
-                if case UserListEngine.SavingError.alreadyExists = error {
-                    updateUser(withEmail: userData.email)
-                }
-            }
-        }
-    }
-    
-    func updateUser(withEmail email: String) {}
-}
-
-private extension UserListEngine {
-    func getRemoteUsers() async throws -> [UserData] {
-        return try await NetworkDataProvider.loadData(fromEndpoint: .users)
     }
     
     func saveUser(withData userData: UserData) throws -> Result<Void, Error> {
@@ -64,5 +41,28 @@ private extension UserListEngine {
         } catch {
             return .failure(error)
         }
+    }
+    
+    func merge() async throws {
+        let remoteUsers = try await getRemoteUsers()
+        for userData in remoteUsers {
+            let result = try saveUser(withData: userData)
+            switch result {
+            case .success:
+                continue
+            case .failure(let error):
+                if case UsersEngine.SavingError.alreadyExists = error {
+                    updateUser(withEmail: userData.email)
+                }
+            }
+        }
+    }
+    
+    func updateUser(withEmail email: String) {}
+}
+
+private extension UsersEngine {
+    func getRemoteUsers() async throws -> [UserData] {
+        return try await NetworkDataProvider.loadData(fromEndpoint: .users)
     }
 }

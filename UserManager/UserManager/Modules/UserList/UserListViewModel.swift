@@ -1,25 +1,53 @@
 import Foundation
+import Combine
 
-protocol UserListViewModelProtocol {
-    var model: UserListModelProtocol? { get }
-    var didUpdate: (() -> Void)? { get set }
-    func triggerModelUpdate()
-}
+class UserListViewModel {
 
-class UserListViewModel: UserListViewModelProtocol {
+    enum Input {
+        case viewDidLoad
+    }
+    enum Output {
+        case setUsers(users: [UserData])
+    }
+
+    private let output = PassthroughSubject<Output, Never>()
+    private var cancellables = Set<AnyCancellable>()
+
+    private let model: UserListModel
     
-    var model: UserListModelProtocol? {
-        didSet {
-            model?.listDidChange = { [weak self] in
-                self?.didUpdate?()
-            }
+    var itemsCount: Int {
+        return model.users.count
+    }
+
+    init(model: UserListModel) {
+        self.model = model
+        model.listDidChange = { [weak self] in
+            self?.sendUsers()
         }
     }
     
-    var didUpdate: (() -> Void)?
-
+    func userForRowAtIndexPath(_ row: Int) -> UserData {
+        return model.users[row]
+    }
+    
+    private func sendUsers() {
+        output.send(.setUsers(users: model.users))
+    }
+    
     func triggerModelUpdate() {
-        model?.triggerListUpdate()
+        model.triggerListUpdate()
+    }
+    
+    func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
+        input
+            .sink { [unowned self] event in
+                switch event {
+                    case .viewDidLoad:
+                        self.sendUsers()
+                }
+            }
+            .store(in: &cancellables)
+        return output.eraseToAnyPublisher()
     }
 }
 

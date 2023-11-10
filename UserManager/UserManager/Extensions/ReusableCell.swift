@@ -1,12 +1,13 @@
-import Foundation
+import UIKit
 
-protocol ReusableView {
+protocol ReusableCell: UITableViewCell {
     static var reuseIdentifier: String { get }
 }
 
-extension ReusableView {
+extension ReusableCell {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
+extension UITableViewCell: ReusableCell {}

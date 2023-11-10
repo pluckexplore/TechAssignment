@@ -1,15 +1,8 @@
 import Foundation
 
-protocol UserListModelProtocol {
-    var users: [UserData] { get }
-    var listDidChange: (() -> ())? { get set }
-    init(engine: UserListEngine)
-    func triggerListUpdate()
-}
-
-final class UserListModel: UserListModelProtocol {
+final class UserListModel {
     
-    private let engine: UserListEngine
+    private let engine: UsersEngine
     
     private(set) var users: [UserData] = [] {
         didSet {
@@ -17,9 +10,9 @@ final class UserListModel: UserListModelProtocol {
         }
     }
     
-    var listDidChange: (() -> ())?
+    var listDidChange: EmptyBlock?
     
-    required init(engine: UserListEngine) {
+    init(engine: UsersEngine) {
         self.engine = engine
     }
     
