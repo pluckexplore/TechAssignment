@@ -1,7 +1,7 @@
 import Foundation
 import SwiftMessages
 
-struct SimpleMessage {
+enum SimpleMessage {
     enum Theme {
         case success, failure, warning
     }

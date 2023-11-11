@@ -51,7 +51,7 @@ extension UsersEngine {
     func merge() async throws {
         let remoteUsers = try await getRemoteUsers()
         for userData in remoteUsers {
-            try saveUser(withData: userData)
+            _ = try saveUser(withData: userData)
         }
     }
     
