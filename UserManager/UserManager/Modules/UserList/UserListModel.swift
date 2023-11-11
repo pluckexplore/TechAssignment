@@ -22,15 +22,15 @@ final class UserListModel {
     
     func setupPublisher() {
         self.engine.$localUsers
-            .sink { [ weak self ] newUsers in
-                self?.users = newUsers
+            .sink { [ unowned self ] newUsers in
+                self.users = newUsers
             }.store(in: &cancellables)
     }
     
     func mergeLocalUsersWithRemote() {
-        Task.detached { [weak self] in
+        Task.detached {
             do {
-                try await self?.engine.merge()
+                try await self.engine.merge()
             } catch {
                 debugPrint(error)
             }

@@ -67,7 +67,7 @@ private extension UserListViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
-            action: #selector(onAdddUserTapped)
+            action: #selector(onAddUserTapped)
         )
         navigationItem.rightBarButtonItem = editButtonItem
     }
@@ -85,17 +85,44 @@ private extension UserListViewController {
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] event in
                 switch event {
-                case .setUsers(let users):
-                    var snapshot = dataSource.snapshot()
-                    snapshot.deleteAllItems()
-                    snapshot.appendSections([.users])
-                    snapshot.appendItems(users, toSection: .users)
-                    dataSource.apply(snapshot)
+                    case .setUsers(let users):
+                        if users.isEmpty {
+                            self.contentTableView.setEmptyMessage(AppConstants.UserList.Message.emptyList.rawValue)
+                        } else {
+                            self.contentTableView.restore()
+                            var snapshot = dataSource.snapshot()
+                            snapshot.deleteAllItems()
+                            snapshot.appendSections([.users])
+                            snapshot.appendItems(users, toSection: .users)
+                            dataSource.apply(snapshot)
+                        }
                 }
             }.store(in: &cancellables)
     }
     
-    @objc private func onAdddUserTapped() {
+    @objc private func onAddUserTapped() {
         router.routeTo(.addUser)
+    }
+}
+
+private extension UITableView {
+    
+    var emptyMessageLabel: UILabel {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height))
+        label.textColor = .darkText
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.sizeToFit()
+        return label
+    }
+    
+    func setEmptyMessage(_ message: String) {
+        let label = emptyMessageLabel
+        label.text = message
+        backgroundView = label
+    }
+
+    func restore() {
+        backgroundView = nil
     }
 }

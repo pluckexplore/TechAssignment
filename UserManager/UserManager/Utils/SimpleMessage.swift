@@ -1,19 +1,21 @@
 import Foundation
 import SwiftMessages
 
-struct SimpleMessage {
+enum SimpleMessage {
     enum Theme {
-        case success, failure
+        case success, failure, warning
     }
-    static func displayComfiguredWithTheme(_ theme: Theme, withTitle title: String, withBody body: String) {
+    static func displayConfiguredWithTheme(_ theme: Theme, withTitle title: String, withBody body: String) {
         
         SwiftMessages.show {
             let view = MessageView.viewFromNib(layout: .cardView)
             switch theme {
-            case .success:
-                view.configureTheme(.success)
-            case .failure:
-                view.configureTheme(.error)
+                case .success:
+                    view.configureTheme(.success)
+                case .failure:
+                    view.configureTheme(.error)
+                case .warning:
+                    view.configureTheme(.warning)
             }
             view.configureContent(title: title, body: body)
             view.button?.isHidden = true
