@@ -1,10 +1,10 @@
 import Foundation
 import Combine
 
-class AddUserViewModel: ObservableObject {
-    
+final class AddUserViewModel: ObservableObject {
+
     private let model: AddUserModel
-    
+
     enum ViewState {
         case loading
         case success
@@ -14,7 +14,7 @@ class AddUserViewModel: ObservableObject {
     @Published var name = ""
     @Published var email = ""
     @Published var state: ViewState = .none
-    
+
     var isValidNamePublisher: AnyPublisher<Bool, Never> {
         $name
             .debounce(for: 1.0, scheduler: DispatchQueue.main)
@@ -27,13 +27,13 @@ class AddUserViewModel: ObservableObject {
             .map { $0.isValidEmail }
             .eraseToAnyPublisher()
     }
-    
+
     var isSubmitEnabled: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest(isValidNamePublisher, isValidEmailPublisher)
             .map { $0 && $1 }
             .eraseToAnyPublisher()
     }
-    
+
     init(model: AddUserModel) {
         self.model = model
     }
@@ -50,11 +50,9 @@ class AddUserViewModel: ObservableObject {
 }
 
 fileprivate extension String {
-    
-    var isValidName: Bool {
-        return self.count > 3
-    }
-    
+
+    var isValidName: Bool { count > 3 }
+
     var isValidEmail: Bool {
         NSPredicate.emailPredicate.evaluate(with: self)
     }

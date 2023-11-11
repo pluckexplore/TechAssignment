@@ -10,7 +10,7 @@ final class UserListModel {
         }
     }
     
-    var listDidChange: EmptyBlock?
+    var listDidChange: (() -> Void)?
     
     init(engine: UsersEngine) {
         self.engine = engine

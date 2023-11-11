@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEB75A2E2AFF710500C85FC5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75A2C2AFF710500C85FC5 /* User.swift */; };
 		CEBB3DF02AFE5420009A9C5A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DEF2AFE5420009A9C5A /* Router.swift */; };
 		CEBB3DF22AFE54A8009A9C5A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DF12AFE54A8009A9C5A /* AppConstants.swift */; };
 		CEBB3DF52AFE5A33009A9C5A /* AddUserModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DF42AFE5A33009A9C5A /* AddUserModuleBuilder.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CEB75A2C2AFF710500C85FC5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEBB3DEF2AFE5420009A9C5A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CEBB3DF12AFE54A8009A9C5A /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		CEBB3DF42AFE5A33009A9C5A /* AddUserModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserModuleBuilder.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		CEF141FA2AFA841700309980 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				CEB75A2C2AFF710500C85FC5 /* User.swift */,
 				CEF142002AFA84DF00309980 /* CoreDataStack.swift */,
 				CEF141FD2AFA845600309980 /* DataModel.xcdatamodeld */,
 			);
@@ -279,6 +282,7 @@
 				CEF141E62AFA809100309980 /* AppDelegate.swift in Sources */,
 				CEEBF0BB2AFBA10D006F86CE /* NetworkDataProvider.swift in Sources */,
 				CEBB3DFD2AFE5AA6009A9C5A /* SimpleMessage.swift in Sources */,
+				CEB75A2E2AFF710500C85FC5 /* User.swift in Sources */,
 				CEBB3DF72AFE5A4D009A9C5A /* AddUserModel.swift in Sources */,
 				CEF142032AFA84FA00309980 /* StorageDataProvider.swift in Sources */,
 				CECDB1F92AFCDC7300E7A24A /* DIContainer.swift in Sources */,
