@@ -4,6 +4,14 @@
 
 Hello there! I'm Polina, an iOS Engineer, and I'm excited to present my latest iOS application. 
 
+## Demo
+
+<div class="row">
+<img src=https://github.com/pluckexplore/TechAssignment/assets/65394578/a426f56a-97f0-457a-9946-8f81c10defbc />
+<img src=https://github.com/pluckexplore/TechAssignment/assets/65394578/bfae4617-9e19-4741-95c2-87ea3020c8bb />
+<img src=https://github.com/pluckexplore/TechAssignment/assets/65394578/8d394543-a04d-4836-90bd-4626de7d08f4 />
+</div>
+
 ## Features
 
 ### User List Screen
