@@ -5,7 +5,7 @@ struct SimpleMessage {
     enum Theme {
         case success, failure
     }
-    static func displayComfiguredWithTheme(_ theme: Theme, withTitle title: String, withBody body: String) {
+    static func displayConfiguredWithTheme(_ theme: Theme, withTitle title: String, withBody body: String) {
         
         SwiftMessages.show {
             let view = MessageView.viewFromNib(layout: .cardView)

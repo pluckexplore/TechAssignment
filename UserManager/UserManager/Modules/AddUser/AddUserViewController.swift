@@ -117,7 +117,7 @@ private extension AddUserViewController {
                         self?.submitButton.setTitle(AppConstants.AddUser.Message.loading.rawValue, for: .normal)
                     case .success:
                         self?.resetButton()
-                        SimpleMessage.displayComfiguredWithTheme(
+                        SimpleMessage.displayConfiguredWithTheme(
                             .success,
                             withTitle: AppConstants.AddUser.Message.done.rawValue,
                             withBody: AppConstants.AddUser.Message.saved.rawValue
@@ -125,7 +125,7 @@ private extension AddUserViewController {
                         self?.navigationController?.popViewController(animated: true)
                     case .failed:
                         self?.resetButton()
-                        SimpleMessage.displayComfiguredWithTheme(
+                        SimpleMessage.displayConfiguredWithTheme(
                             .failure,
                             withTitle: AppConstants.AddUser.Message.error.rawValue,
                             withBody: AppConstants.AddUser.Message.alreadyExists.rawValue

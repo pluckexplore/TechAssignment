@@ -46,7 +46,7 @@ class UserListViewModel {
                     case .deleteUser(let email):
                         let deleted = self.model.deleteUser(withEmail: email)
                         if case Result.failure(let error) = deleted {
-                            SimpleMessage.displayComfiguredWithTheme(
+                            SimpleMessage.displayConfiguredWithTheme(
                                 .failure,
                                 withTitle: AppConstants.UserList.Message.deletionError.rawValue,
                                 withBody: error.localizedDescription

@@ -8,6 +8,7 @@ enum AppConstants {
             case usersSection = "Users"
         }
         enum Message: String {
+            case emptyList = "User list is empty..."
             case deletionError = "Deletion Error"
         }
     }
