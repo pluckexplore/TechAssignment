@@ -5,7 +5,6 @@ class UserListViewModel {
 
     enum Input {
         case viewDidLoad
-        case viewWillAppear
         case deleteUser(withEmail: String)
     }
     enum Output {
@@ -33,18 +32,16 @@ class UserListViewModel {
     }
     
     private func sendUsers() {
-        output.send(.setUsers(users: model.users))
-    }
-    
-    func triggerModelUpdate() {
-        model.triggerListUpdate()
+        let users = model.users.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
+        output.send(.setUsers(users: users))
     }
     
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input
             .sink { [unowned self] event in
                 switch event {
-                case .viewDidLoad, .viewWillAppear:
+                case .viewDidLoad:
+                    self.model.mergeLocalUsersWithRemote()
                     self.sendUsers()
                 case .deleteUser(let email):
                     let deleted = self.model.deleteUser(withEmail: email)

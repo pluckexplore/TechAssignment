@@ -1,10 +1,13 @@
 import Foundation
+import Combine
 
 final class UserListModel {
     
     private let engine: UsersEngine
     
-    private(set) var users: [UserData] = [] {
+    private var cancellables = Set<AnyCancellable>()
+    
+    private(set) lazy var users: [UserData] = [] {
         didSet {
             listDidChange?()
         }
@@ -14,14 +17,20 @@ final class UserListModel {
     
     init(engine: UsersEngine) {
         self.engine = engine
+        setupPublisher()
     }
     
-    func triggerListUpdate() {
+    func setupPublisher() {
+        self.engine.$localUsers
+            .sink { [ weak self ] newUsers in
+                self?.users = newUsers
+            }.store(in: &cancellables)
+    }
+    
+    func mergeLocalUsersWithRemote() {
         Task.detached { [weak self] in
-            guard let self = self else { return }
             do {
-                try await self.engine.merge()
-                self.users = self.engine.getUsersFromStorage()
+                try await self?.engine.merge()
             } catch {
                 debugPrint(error)
             }

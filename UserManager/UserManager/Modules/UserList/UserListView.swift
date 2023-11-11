@@ -11,6 +11,7 @@ final class UserListViewController: UIViewController, UITableViewDelegate {
         let tableView = UITableView(frame: view.bounds)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
         tableView.delegate = self
+        tableView.allowsSelection = false
         tableView.separatorStyle = .singleLine
         tableView.bounces = false
         return tableView
@@ -42,11 +43,6 @@ final class UserListViewController: UIViewController, UITableViewDelegate {
     
     required init?(coder: NSCoder) {
         fatalError("\(Self.self).init(coder:) has not been implemented")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.triggerModelUpdate()
     }
     
     override func viewDidLoad() {
@@ -84,7 +80,6 @@ private extension UserListViewController {
     }
     
     func startObserving() {
-        viewModel.triggerModelUpdate()
         viewModel
             .transform(input: output.eraseToAnyPublisher())
             .receive(on: DispatchQueue.main)

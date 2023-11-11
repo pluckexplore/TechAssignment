@@ -1,6 +1,6 @@
 import Foundation
 
-final class UserListModuleBuilder {
+enum UserListModuleBuilder {
     static func buildView(engine: UsersEngine, router: Router) -> UserListViewController {
         let model = UserListModel(engine: engine)
         let viewModel = UserListViewModel(model: model)
