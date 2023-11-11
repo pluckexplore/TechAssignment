@@ -23,7 +23,7 @@ extension UsersEngine {
     func getUsersFromStorage() -> [UserData] {
         do {
             let users = try storage.fetchAllUsers()
-            return users.map { UserData(name: $0.name ?? "", email: $0.email ?? "") }
+            return users.map { UserData(name: $0.name , email: $0.email ) }
         } catch {
             debugPrint(error)
             return []

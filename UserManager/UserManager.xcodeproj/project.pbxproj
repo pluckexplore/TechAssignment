@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEB75A2E2AFF710500C85FC5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75A2C2AFF710500C85FC5 /* User.swift */; };
 		CEBB3DF02AFE5420009A9C5A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DEF2AFE5420009A9C5A /* Router.swift */; };
 		CEBB3DF22AFE54A8009A9C5A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DF12AFE54A8009A9C5A /* AppConstants.swift */; };
+		CEBB3DF52AFE5A33009A9C5A /* AddUserModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DF42AFE5A33009A9C5A /* AddUserModuleBuilder.swift */; };
+		CEBB3DF72AFE5A4D009A9C5A /* AddUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DF62AFE5A4D009A9C5A /* AddUserModel.swift */; };
+		CEBB3DF92AFE5A6E009A9C5A /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DF82AFE5A6E009A9C5A /* AddUserView.swift */; };
+		CEBB3DFB2AFE5A81009A9C5A /* AddUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DFA2AFE5A81009A9C5A /* AddUserViewModel.swift */; };
+		CEBB3DFD2AFE5AA6009A9C5A /* SimpleMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB3DFC2AFE5AA6009A9C5A /* SimpleMessage.swift */; };
+		CEBB3E002AFE5AE6009A9C5A /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = CEBB3DFF2AFE5AE6009A9C5A /* SwiftMessages */; };
+		CEBB3E022AFE5AE6009A9C5A /* SwiftMessages-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CEBB3E012AFE5AE6009A9C5A /* SwiftMessages-Dynamic */; };
 		CECDB1F92AFCDC7300E7A24A /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDB1F82AFCDC7300E7A24A /* DIContainer.swift */; };
 		CECDB1FB2AFCDCC700E7A24A /* DIContainerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDB1FA2AFCDCC700E7A24A /* DIContainerConfig.swift */; };
 		CEEBF0BB2AFBA10D006F86CE /* NetworkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */; };
@@ -28,8 +36,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CEB75A2C2AFF710500C85FC5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEBB3DEF2AFE5420009A9C5A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CEBB3DF12AFE54A8009A9C5A /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		CEBB3DF42AFE5A33009A9C5A /* AddUserModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserModuleBuilder.swift; sourceTree = "<group>"; };
+		CEBB3DF62AFE5A4D009A9C5A /* AddUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserModel.swift; sourceTree = "<group>"; };
+		CEBB3DF82AFE5A6E009A9C5A /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
+		CEBB3DFA2AFE5A81009A9C5A /* AddUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewModel.swift; sourceTree = "<group>"; };
+		CEBB3DFC2AFE5AA6009A9C5A /* SimpleMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMessage.swift; sourceTree = "<group>"; };
 		CECDB1F82AFCDC7300E7A24A /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		CECDB1FA2AFCDCC700E7A24A /* DIContainerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainerConfig.swift; sourceTree = "<group>"; };
 		CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataProvider.swift; sourceTree = "<group>"; };
@@ -55,12 +69,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBB3E022AFE5AE6009A9C5A /* SwiftMessages-Dynamic in Frameworks */,
+				CEBB3E002AFE5AE6009A9C5A /* SwiftMessages in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEBB3DF32AFE5A0F009A9C5A /* AddUser */ = {
+			isa = PBXGroup;
+			children = (
+				CEBB3DF42AFE5A33009A9C5A /* AddUserModuleBuilder.swift */,
+				CEBB3DF62AFE5A4D009A9C5A /* AddUserModel.swift */,
+				CEBB3DF82AFE5A6E009A9C5A /* AddUserView.swift */,
+				CEBB3DFA2AFE5A81009A9C5A /* AddUserViewModel.swift */,
+			);
+			path = AddUser;
+			sourceTree = "<group>";
+		};
 		CECDB1F72AFCDC1C00E7A24A /* DIContainer */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +111,7 @@
 			children = (
 				CEBB3DEF2AFE5420009A9C5A /* Router.swift */,
 				CEEBF0BD2AFBB97D006F86CE /* UserList */,
+				CEBB3DF32AFE5A0F009A9C5A /* AddUser */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -110,6 +138,7 @@
 		CEEBF0CD2AFBFEA7006F86CE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CEBB3DFC2AFE5AA6009A9C5A /* SimpleMessage.swift */,
 				CEEBF0CF2AFBFEF4006F86CE /* UsersEngine.swift */,
 			);
 			path = Utils;
@@ -161,6 +190,7 @@
 		CEF141FA2AFA841700309980 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				CEB75A2C2AFF710500C85FC5 /* User.swift */,
 				CEF142002AFA84DF00309980 /* CoreDataStack.swift */,
 				CEF141FD2AFA845600309980 /* DataModel.xcdatamodeld */,
 			);
@@ -184,6 +214,8 @@
 			);
 			name = UserManager;
 			packageProductDependencies = (
+				CEBB3DFF2AFE5AE6009A9C5A /* SwiftMessages */,
+				CEBB3E012AFE5AE6009A9C5A /* SwiftMessages-Dynamic */,
 			);
 			productName = UserManager;
 			productReference = CEF141E22AFA809100309980 /* UserManager.app */;
@@ -214,6 +246,7 @@
 			);
 			mainGroup = CEF141D92AFA809100309980;
 			packageReferences = (
+				CEBB3DFE2AFE5AE6009A9C5A /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 			);
 			productRefGroup = CEF141E32AFA809100309980 /* Products */;
 			projectDirPath = "";
@@ -241,16 +274,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBB3DF52AFE5A33009A9C5A /* AddUserModuleBuilder.swift in Sources */,
 				CEEBF0C52AFBBBD9006F86CE /* UserListViewModel.swift in Sources */,
+				CEBB3DF92AFE5A6E009A9C5A /* AddUserView.swift in Sources */,
 				CEEBF0C82AFBBC5F006F86CE /* ReusableCell.swift in Sources */,
 				CEF141FF2AFA845600309980 /* DataModel.xcdatamodeld in Sources */,
 				CEF141E62AFA809100309980 /* AppDelegate.swift in Sources */,
 				CEEBF0BB2AFBA10D006F86CE /* NetworkDataProvider.swift in Sources */,
+				CEBB3DFD2AFE5AA6009A9C5A /* SimpleMessage.swift in Sources */,
+				CEB75A2E2AFF710500C85FC5 /* User.swift in Sources */,
+				CEBB3DF72AFE5A4D009A9C5A /* AddUserModel.swift in Sources */,
 				CEF142032AFA84FA00309980 /* StorageDataProvider.swift in Sources */,
 				CECDB1F92AFCDC7300E7A24A /* DIContainer.swift in Sources */,
 				CEBB3DF02AFE5420009A9C5A /* Router.swift in Sources */,
 				CEF142012AFA84DF00309980 /* CoreDataStack.swift in Sources */,
 				CECDB1FB2AFCDCC700E7A24A /* DIContainerConfig.swift in Sources */,
+				CEBB3DFB2AFE5A81009A9C5A /* AddUserViewModel.swift in Sources */,
 				CEEBF0D02AFBFEF4006F86CE /* UsersEngine.swift in Sources */,
 				CEBB3DF22AFE54A8009A9C5A /* AppConstants.swift in Sources */,
 				CEEBF0CA2AFBC203006F86CE /* UserListModuleBuilder.swift in Sources */,
@@ -469,6 +508,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CEBB3DFE2AFE5AE6009A9C5A /* XCRemoteSwiftPackageReference "SwiftMessages" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftKickMobile/SwiftMessages.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CEBB3DFF2AFE5AE6009A9C5A /* SwiftMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEBB3DFE2AFE5AE6009A9C5A /* XCRemoteSwiftPackageReference "SwiftMessages" */;
+			productName = SwiftMessages;
+		};
+		CEBB3E012AFE5AE6009A9C5A /* SwiftMessages-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEBB3DFE2AFE5AE6009A9C5A /* XCRemoteSwiftPackageReference "SwiftMessages" */;
+			productName = "SwiftMessages-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CEF141FD2AFA845600309980 /* DataModel.xcdatamodeld */ = {
