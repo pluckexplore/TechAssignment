@@ -34,5 +34,3 @@ Hello there! I'm Polina, an iOS Engineer, and I'm excited to present my latest i
 ## Getting Started
 
 To run this app, make sure you have Xcode installed and set the deployment target to iOS 15.0 or later. Simply clone the repository, open the project in Xcode, and run the app on your iOS device or simulator.
-
-Feel free to explore, contribute, and enhance the app. Happy coding! 
