@@ -85,12 +85,12 @@ private extension UserListViewController {
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] event in
                 switch event {
-                case .setUsers(let users):
-                    var snapshot = dataSource.snapshot()
-                    snapshot.deleteAllItems()
-                    snapshot.appendSections([.users])
-                    snapshot.appendItems(users, toSection: .users)
-                    dataSource.apply(snapshot)
+                    case .setUsers(let users):
+                        var snapshot = dataSource.snapshot()
+                        snapshot.deleteAllItems()
+                        snapshot.appendSections([.users])
+                        snapshot.appendItems(users, toSection: .users)
+                        dataSource.apply(snapshot)
                 }
             }.store(in: &cancellables)
     }

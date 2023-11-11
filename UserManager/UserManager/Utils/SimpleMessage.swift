@@ -10,10 +10,10 @@ struct SimpleMessage {
         SwiftMessages.show {
             let view = MessageView.viewFromNib(layout: .cardView)
             switch theme {
-            case .success:
-                view.configureTheme(.success)
-            case .failure:
-                view.configureTheme(.error)
+                case .success:
+                    view.configureTheme(.success)
+                case .failure:
+                    view.configureTheme(.error)
             }
             view.configureContent(title: title, body: body)
             view.button?.isHidden = true

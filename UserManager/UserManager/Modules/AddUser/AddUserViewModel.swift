@@ -41,10 +41,10 @@ final class AddUserViewModel: ObservableObject {
     func submit() {
         state = .loading
         switch model.addUser(withName: name, withEmail: email) {
-        case .success:
-            self.state = .success
-        case .failure(let error):
-            self.state = .failed(error)
+            case .success:
+                self.state = .success
+            case .failure(let error):
+                self.state = .failed(error)
         }
     }
 }

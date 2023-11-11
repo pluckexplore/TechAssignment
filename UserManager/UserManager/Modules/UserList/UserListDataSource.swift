@@ -4,8 +4,8 @@ enum UserListSection: Int {
     case users = 0
     var title: String? {
         switch self {
-        case .users:
-            return AppConstants.UserList.Title.usersSection.rawValue
+            case .users:
+                return AppConstants.UserList.Title.usersSection.rawValue
         }
     }
 }

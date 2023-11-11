@@ -51,16 +51,7 @@ extension UsersEngine {
     func merge() async throws {
         let remoteUsers = try await getRemoteUsers()
         for userData in remoteUsers {
-            let result = try saveUser(withData: userData)
-            switch result {
-            case .success:
-                localUsers.append(userData)
-                continue
-            case .failure(let error):
-                if case UsersEngine.SavingError.alreadyExists = error {
-                    //
-                }
-            }
+            try saveUser(withData: userData)
         }
     }
     
