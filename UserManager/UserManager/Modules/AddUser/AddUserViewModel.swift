@@ -10,7 +10,7 @@ final class AddUserViewModel: ObservableObject {
         case none
     }
     
-    enum InputValidatonError: Error {
+    enum InputValidationError: Error {
         case invalidName
         case invalidEmail
         
@@ -34,12 +34,12 @@ final class AddUserViewModel: ObservableObject {
         self.model = model
     }
     
-    func checkForCorrectInput() -> Result<Void, InputValidatonError> {
+    func checkForCorrectInput() -> Result<Void, InputValidationError> {
         guard name.count >= 5, name.count <= 20 else {
-            return .failure(InputValidatonError.invalidName)
+            return .failure(InputValidationError.invalidName)
         }
         guard email.isValidEmail else {
-            return .failure(InputValidatonError.invalidEmail)
+            return .failure(InputValidationError.invalidEmail)
         }
         return .success(())
     }

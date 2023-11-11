@@ -67,7 +67,7 @@ private extension UserListViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
-            action: #selector(onAdddUserTapped)
+            action: #selector(onAddUserTapped)
         )
         navigationItem.rightBarButtonItem = editButtonItem
     }
@@ -100,7 +100,7 @@ private extension UserListViewController {
             }.store(in: &cancellables)
     }
     
-    @objc private func onAdddUserTapped() {
+    @objc private func onAddUserTapped() {
         router.routeTo(.addUser)
     }
 }

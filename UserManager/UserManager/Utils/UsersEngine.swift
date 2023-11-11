@@ -24,21 +24,10 @@ final class UsersEngine {
 }
 
 extension UsersEngine {
-    private func getUsersFromStorage() -> [UserData] {
-        do {
-            let users = try storage.fetchAllUsers()
-            return users.map { UserData(name: $0.name , email: $0.email ) }
-        } catch {
-            debugPrint(error)
-            return []
-        }
-    }
-    
     func saveUser(withData userData: UserData) throws -> Result<Void, Error> {
         do {
             guard try storage.checkIfAlreadyExists(userWithEmail: userData.email) else {
-                let newUser = try storage.newUser()
-                try storage.saveUser(newUser, withName: userData.name, withEmail: userData.email)
+                try storage.saveUser(withData: userData)
                 localUsers.append(userData)
                 return .success(())
             }
@@ -62,6 +51,16 @@ extension UsersEngine {
 }
 
 private extension UsersEngine {
+    func getUsersFromStorage() -> [UserData] {
+        do {
+            let users = try storage.fetchAllUsers()
+            return users.map { UserData(name: $0.name , email: $0.email ) }
+        } catch {
+            debugPrint(error)
+            return []
+        }
+    }
+    
     func getRemoteUsers() async throws -> [UserData] {
         return try await NetworkDataProvider.loadData(fromEndpoint: .users)
     }

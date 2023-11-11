@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-class UserListViewModel {
+final class UserListViewModel {
 
     enum Input {
         case viewDidLoad
@@ -31,11 +31,6 @@ class UserListViewModel {
         return model.users.first {  $0.email == email }
     }
     
-    private func sendUsers() {
-        let users = model.users.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
-        output.send(.setUsers(users))
-    }
-    
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input
             .sink { [unowned self] event in
@@ -60,3 +55,9 @@ class UserListViewModel {
     }
 }
 
+private extension UserListViewModel {
+    func sendUsers() {
+        let users = model.users.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
+        output.send(.setUsers(users))
+    }
+}

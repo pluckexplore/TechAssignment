@@ -51,14 +51,11 @@ extension StorageDataProvider {
         }
     }
     
-    func newUser() throws -> User {
-        return User(context: childContext)
-    }
-    
-    func saveUser(_ user: User, withName name: String, withEmail email: String) throws {
-        user.name = name
-        user.email = email
+    func saveUser(withData data: UserData) throws {
         do {
+            let user = User(context: childContext)
+            user.name = data.name
+            user.email = data.email
             try childContext.save()
             try saveContext()
         } catch {
