@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 struct UserData: Decodable, Hashable {
     let name: String
@@ -14,13 +15,16 @@ final class UsersEngine {
     
     private let storage: StorageDataProvider
     
+    @Published var localUsers: [UserData] = []
+    
     init(storage: StorageDataProvider) {
         self.storage = storage
+        localUsers = getUsersFromStorage()
     }
 }
 
 extension UsersEngine {
-    func getUsersFromStorage() -> [UserData] {
+    private func getUsersFromStorage() -> [UserData] {
         do {
             let users = try storage.fetchAllUsers()
             return users.map { UserData(name: $0.name , email: $0.email ) }
@@ -35,6 +39,7 @@ extension UsersEngine {
             guard try storage.checkIfAlreadyExists(userWithEmail: userData.email) else {
                 let newUser = try storage.newUser()
                 try storage.saveUser(newUser, withName: userData.name, withEmail: userData.email)
+                localUsers.append(userData)
                 return .success(())
             }
             return .failure(SavingError.alreadyExists)
@@ -49,16 +54,20 @@ extension UsersEngine {
             let result = try saveUser(withData: userData)
             switch result {
             case .success:
+                localUsers.append(userData)
                 continue
             case .failure(let error):
                 if case UsersEngine.SavingError.alreadyExists = error {
-                    updateUser(withEmail: userData.email)
+                    //
                 }
             }
         }
     }
     
-    func updateUser(withEmail email: String) {}
+    func deleteUser(withEmail email: String) throws {
+        localUsers.removeAll { $0.email == email }
+        try storage.deleteUser(withEmail: email)
+    }
 }
 
 private extension UsersEngine {

@@ -1,6 +1,6 @@
 import Foundation
 
-struct AddUserModuleBuilder {
+enum AddUserModuleBuilder {
     static func buildView(engine: UsersEngine) -> AddUserViewController {
         let model = AddUserModel(engine: engine)
         let viewModel = AddUserViewModel(model: model)

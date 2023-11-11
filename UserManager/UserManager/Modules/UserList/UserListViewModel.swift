@@ -5,6 +5,7 @@ class UserListViewModel {
 
     enum Input {
         case viewDidLoad
+        case deleteUser(withEmail: String)
     }
     enum Output {
         case setUsers(users: [UserData])
@@ -26,24 +27,31 @@ class UserListViewModel {
         }
     }
     
-    func userForRowAtIndexPath(_ row: Int) -> UserData {
-        return model.users[row]
+    func userWithEmail(_ email: String) -> UserData? {
+        return model.users.first {  $0.email == email }
     }
     
     private func sendUsers() {
-        output.send(.setUsers(users: model.users))
-    }
-    
-    func triggerModelUpdate() {
-        model.triggerListUpdate()
+        let users = model.users.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
+        output.send(.setUsers(users: users))
     }
     
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input
             .sink { [unowned self] event in
                 switch event {
-                    case .viewDidLoad:
-                        self.sendUsers()
+                case .viewDidLoad:
+                    self.model.mergeLocalUsersWithRemote()
+                    self.sendUsers()
+                case .deleteUser(let email):
+                    let deleted = self.model.deleteUser(withEmail: email)
+                    if case Result.failure(let error) = deleted {
+                        SimpleMessage.displayComfiguredWithTheme(
+                            .failure,
+                            withTitle: AppConstants.UserList.Message.deletionError.rawValue,
+                            withBody: error.localizedDescription
+                        )
+                    }
                 }
             }
             .store(in: &cancellables)
