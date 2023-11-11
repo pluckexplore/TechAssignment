@@ -5,6 +5,8 @@ class UserListViewModel {
 
     enum Input {
         case viewDidLoad
+        case viewWillAppear
+        case deleteUser(withEmail: String)
     }
     enum Output {
         case setUsers(users: [UserData])
@@ -26,8 +28,8 @@ class UserListViewModel {
         }
     }
     
-    func userForRowAtIndexPath(_ row: Int) -> UserData {
-        return model.users[row]
+    func userWithEmail(_ email: String) -> UserData? {
+        return model.users.first {  $0.email == email }
     }
     
     private func sendUsers() {
@@ -42,8 +44,17 @@ class UserListViewModel {
         input
             .sink { [unowned self] event in
                 switch event {
-                    case .viewDidLoad:
-                        self.sendUsers()
+                case .viewDidLoad, .viewWillAppear:
+                    self.sendUsers()
+                case .deleteUser(let email):
+                    let deleted = self.model.deleteUser(withEmail: email)
+                    if case Result.failure(let error) = deleted {
+                        SimpleMessage.displayComfiguredWithTheme(
+                            .failure,
+                            withTitle: AppConstants.UserList.Message.deletionError.rawValue,
+                            withBody: error.localizedDescription
+                        )
+                    }
                 }
             }
             .store(in: &cancellables)

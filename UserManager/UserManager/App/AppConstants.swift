@@ -1,6 +1,17 @@
 import Foundation
 
 enum AppConstants {
+    
+    enum UserList {
+        enum Title: String {
+            case navItem = "Users List"
+            case usersSection = "Users"
+        }
+        enum Message: String {
+            case deletionError = "Deletion Error"
+        }
+    }
+
     enum AddUser {
         enum ViewConstraint: CGFloat {
             case defaultSpacing = 24

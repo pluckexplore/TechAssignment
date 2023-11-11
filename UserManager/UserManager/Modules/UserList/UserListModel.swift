@@ -27,5 +27,14 @@ final class UserListModel {
             }
         }
     }
+    
+    func deleteUser(withEmail email: String) -> Result<Void, Error> {
+        do {
+            try engine.deleteUser(withEmail: email)
+            return .success(())
+        } catch {
+            return .failure(error)
+        }
+    }
 }
 

@@ -52,13 +52,15 @@ extension UsersEngine {
                 continue
             case .failure(let error):
                 if case UsersEngine.SavingError.alreadyExists = error {
-                    updateUser(withEmail: userData.email)
+                    //
                 }
             }
         }
     }
     
-    func updateUser(withEmail email: String) {}
+    func deleteUser(withEmail email: String) throws {
+        try storage.deleteUser(withEmail: email)
+    }
 }
 
 private extension UsersEngine {
