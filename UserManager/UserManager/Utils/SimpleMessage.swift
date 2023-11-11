@@ -3,7 +3,7 @@ import SwiftMessages
 
 struct SimpleMessage {
     enum Theme {
-        case success, failure
+        case success, failure, warning
     }
     static func displayConfiguredWithTheme(_ theme: Theme, withTitle title: String, withBody body: String) {
         
@@ -14,6 +14,8 @@ struct SimpleMessage {
                     view.configureTheme(.success)
                 case .failure:
                     view.configureTheme(.error)
+                case .warning:
+                    view.configureTheme(.warning)
             }
             view.configureContent(title: title, body: body)
             view.button?.isHidden = true

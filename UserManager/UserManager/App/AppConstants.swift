@@ -25,6 +25,9 @@ enum AppConstants {
             case submit = "Submit"
         }
         enum Message: String {
+            case validationWarning = "Validation warning"
+            case invalidName = "Name should be from 5 to 20 symbols long"
+            case invalidEmail = "Email is not valid"
             case done = "Done"
             case saved = "User saved"
             case error = "Error"

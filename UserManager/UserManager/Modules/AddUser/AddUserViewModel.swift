@@ -3,39 +3,45 @@ import Combine
 
 final class AddUserViewModel: ObservableObject {
 
-    private let model: AddUserModel
-
     enum ViewState {
         case loading
         case success
         case failed(Error)
         case none
     }
+    
+    enum InputValidatonError: Error {
+        case invalidName
+        case invalidEmail
+        
+        var warningMessage: String {
+            switch self {
+                case .invalidName:
+                    return AppConstants.AddUser.Message.invalidName.rawValue
+                case .invalidEmail:
+                    return AppConstants.AddUser.Message.invalidEmail.rawValue
+            }
+        }
+    }
+    
     @Published var name = ""
     @Published var email = ""
     @Published var state: ViewState = .none
-
-    var isValidNamePublisher: AnyPublisher<Bool, Never> {
-        $name
-            .debounce(for: 1.0, scheduler: DispatchQueue.main)
-            .map { $0.isValidName }
-            .eraseToAnyPublisher()
-    }
-    var isValidEmailPublisher: AnyPublisher<Bool, Never> {
-        $email
-            .debounce(for: 1.0, scheduler: DispatchQueue.main)
-            .map { $0.isValidEmail }
-            .eraseToAnyPublisher()
-    }
-
-    var isSubmitEnabled: AnyPublisher<Bool, Never> {
-        Publishers.CombineLatest(isValidNamePublisher, isValidEmailPublisher)
-            .map { $0 && $1 }
-            .eraseToAnyPublisher()
-    }
+    
+    private let model: AddUserModel
 
     init(model: AddUserModel) {
         self.model = model
+    }
+    
+    func checkForCorrectInput() -> Result<Void, InputValidatonError> {
+        guard name.count >= 5, name.count <= 20 else {
+            return .failure(InputValidatonError.invalidName)
+        }
+        guard email.isValidEmail else {
+            return .failure(InputValidatonError.invalidEmail)
+        }
+        return .success(())
     }
 
     func submit() {
@@ -50,9 +56,6 @@ final class AddUserViewModel: ObservableObject {
 }
 
 fileprivate extension String {
-
-    var isValidName: Bool { count > 3 }
-
     var isValidEmail: Bool {
         NSPredicate.emailPredicate.evaluate(with: self)
     }

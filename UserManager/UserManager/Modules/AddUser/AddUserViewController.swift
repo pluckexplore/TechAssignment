@@ -105,10 +105,6 @@ private extension AddUserViewController {
     }
 
     func setupPublishers() {
-        viewModel.isSubmitEnabled
-            .assign(to: \.isEnabled, on: submitButton)
-            .store(in: &cancellables)
-
         viewModel.$state
             .sink { [weak self] state in
                 switch state {
@@ -138,7 +134,17 @@ private extension AddUserViewController {
     }
 
     @objc func onSubmit() {
-        viewModel.submit()
+        switch viewModel.checkForCorrectInput() {
+            case .success:
+                viewModel.submit()
+                resetButton()
+            case .failure(let error):
+                SimpleMessage.displayConfiguredWithTheme(
+                    .warning,
+                    withTitle: AppConstants.AddUser.Message.validationWarning.rawValue,
+                    withBody: error.warningMessage
+                )
+        }
     }
 
     func resetButton() {
