@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEB42DCE2B003219008E3396 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB42DCD2B003219008E3396 /* UITableView.swift */; };
+		CEB42DD02B003271008E3396 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB42DCF2B003271008E3396 /* String.swift */; };
+		CEB42DD22B003291008E3396 /* NSPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB42DD12B003291008E3396 /* NSPredicate.swift */; };
 		CEB75A2E2AFF710500C85FC5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75A2C2AFF710500C85FC5 /* User.swift */; };
 		CEB75A312AFFAD6300C85FC5 /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75A302AFFAD6300C85FC5 /* UserListDataSource.swift */; };
 		CEB75A342AFFFD3F00C85FC5 /* SwiftMessages-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CEB75A332AFFFD3F00C85FC5 /* SwiftMessages-Dynamic */; };
@@ -52,6 +55,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CEB42DCD2B003219008E3396 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		CEB42DCF2B003271008E3396 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		CEB42DD12B003291008E3396 /* NSPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicate.swift; sourceTree = "<group>"; };
 		CEB75A2C2AFF710500C85FC5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEB75A302AFFAD6300C85FC5 /* UserListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDataSource.swift; sourceTree = "<group>"; };
 		CEBB3DEF2AFE5420009A9C5A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -155,7 +161,10 @@
 		CEEBF0C62AFBBC4E006F86CE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CEB42DD12B003291008E3396 /* NSPredicate.swift */,
 				CEEBF0C72AFBBC5F006F86CE /* ReusableCell.swift */,
+				CEB42DCF2B003271008E3396 /* String.swift */,
+				CEB42DCD2B003219008E3396 /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -301,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB42DD02B003271008E3396 /* String.swift in Sources */,
 				CEBB3DF52AFE5A33009A9C5A /* AddUserModuleBuilder.swift in Sources */,
 				CEEBF0C52AFBBBD9006F86CE /* UserListViewModel.swift in Sources */,
 				CEBB3DF92AFE5A6E009A9C5A /* AddUserViewController.swift in Sources */,
@@ -314,12 +324,14 @@
 				CEBB3DF72AFE5A4D009A9C5A /* AddUserModel.swift in Sources */,
 				CEF142032AFA84FA00309980 /* StorageDataProvider.swift in Sources */,
 				CECDB1F92AFCDC7300E7A24A /* DIContainer.swift in Sources */,
+				CEB42DCE2B003219008E3396 /* UITableView.swift in Sources */,
 				CEBB3DF02AFE5420009A9C5A /* Router.swift in Sources */,
 				CEF142012AFA84DF00309980 /* CoreDataStack.swift in Sources */,
 				CECDB1FB2AFCDCC700E7A24A /* DIContainerConfig.swift in Sources */,
 				CEBB3DFB2AFE5A81009A9C5A /* AddUserViewModel.swift in Sources */,
 				CEEBF0D02AFBFEF4006F86CE /* UsersEngine.swift in Sources */,
 				CEBB3DF22AFE54A8009A9C5A /* AppConstants.swift in Sources */,
+				CEB42DD22B003291008E3396 /* NSPredicate.swift in Sources */,
 				CEEBF0CA2AFBC203006F86CE /* UserListModuleBuilder.swift in Sources */,
 				CEEBF0C02AFBBB5F006F86CE /* UserListViewController.swift in Sources */,
 				CEEBF0CC2AFBC43B006F86CE /* UserListModel.swift in Sources */,
