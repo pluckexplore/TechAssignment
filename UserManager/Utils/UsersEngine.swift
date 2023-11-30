@@ -1,11 +1,6 @@
 import Foundation
 import Combine
 
-struct UserData: Decodable, Hashable {
-    let name: String
-    let email: String
-}
-
 final class UsersEngine {
     
     enum SavingError: Error {
@@ -13,11 +8,11 @@ final class UsersEngine {
         case databaseError
     }
     
-    private let storage: StorageDataProvider
+    private let storage: UserStorageDataProvider
     
     @Published var localUsers: [UserData] = []
     
-    init(storage: StorageDataProvider) {
+    init(storage: UserStorageDataProvider) {
         self.storage = storage
         localUsers = getUsersFromStorage()
     }
@@ -26,8 +21,8 @@ final class UsersEngine {
 extension UsersEngine {
     func saveUser(withData userData: UserData) throws -> Result<Void, Error> {
         do {
-            guard try storage.checkIfAlreadyExists(userWithEmail: userData.email) else {
-                try storage.saveUser(withData: userData)
+            guard try storage.checkIfAlreadyExists(withEmail: userData.email) else {
+                try storage.save(withData: userData)
                 localUsers.append(userData)
                 return .success(())
             }
@@ -46,14 +41,14 @@ extension UsersEngine {
     
     func deleteUser(withEmail email: String) throws {
         localUsers.removeAll { $0.email == email }
-        try storage.deleteUser(withEmail: email)
+        try storage.delete(withEmail: email)
     }
 }
 
 private extension UsersEngine {
     func getUsersFromStorage() -> [UserData] {
         do {
-            let users = try storage.fetchAllUsers()
+            let users = try storage.fetchAll()
             return users.map { UserData(name: $0.name , email: $0.email ) }
         } catch {
             debugPrint(error)

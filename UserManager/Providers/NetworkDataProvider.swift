@@ -1,6 +1,6 @@
 import Foundation
 
-final class NetworkDataProvider {
+enum NetworkDataProvider {
     static var scheme = "https"
     static var host = "jsonplaceholder.typicode.com"
     

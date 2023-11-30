@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-final class StorageDataProvider {
+class UserStorageDataProvider {
     
     enum DataError: Error {
         case fetchFailed
@@ -9,19 +9,21 @@ final class StorageDataProvider {
         case deletingFailed
     }
     
-    private static let modelName = "DataModel"
-    
-    private let context = CoreDataStack(modelName: StorageDataProvider.modelName).managedContext
+    private let context: NSManagedObjectContext
     
     private lazy var childContext: NSManagedObjectContext = {
         let childContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         childContext.parent = context
         return childContext
     }()
+    
+    init (coreDataStack: CoreDataStack) {
+        self.context = coreDataStack.managedContext
+    }
 }
 
-extension StorageDataProvider {
-    func fetchAllUsers() throws -> [User] {
+extension UserStorageDataProvider {
+    func fetchAll() throws -> [User] {
         do {
             let request = User.fetchRequest() as NSFetchRequest
             let compareSelector = #selector(NSString.localizedStandardCompare(_:))
@@ -39,7 +41,7 @@ extension StorageDataProvider {
         }
     }
     
-    func checkIfAlreadyExists(userWithEmail email: String) throws -> Bool {
+    func checkIfAlreadyExists(withEmail email: String) throws -> Bool {
         do {
             let request = User.fetchRequest() as NSFetchRequest
             request.predicate = NSPredicate(format: "email == %@", email)
@@ -51,7 +53,7 @@ extension StorageDataProvider {
         }
     }
     
-    func saveUser(withData data: UserData) throws {
+    func save(withData data: UserData) throws {
         do {
             let user = User(context: childContext)
             user.name = data.name
@@ -63,7 +65,7 @@ extension StorageDataProvider {
         }
     }
     
-    func deleteUser(withEmail email: String) throws {
+    func delete(withEmail email: String) throws {
         do {
             guard let user = try getUser(byEmail: email) else {
                 throw DataError.fetchFailed
@@ -76,7 +78,7 @@ extension StorageDataProvider {
     }
 }
 
-private extension StorageDataProvider {
+private extension UserStorageDataProvider {
     func saveContext() throws {
         do {
             try context.save()

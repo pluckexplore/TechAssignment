@@ -2,6 +2,10 @@ import Foundation
 
 enum AppConstants {
     
+    enum DataBase: String {
+        case modelName = "DataModel"
+    }
+    
     enum UserList {
         enum Title: String {
             case navItem = "Users List"
