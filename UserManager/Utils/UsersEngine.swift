@@ -8,11 +8,11 @@ final class UsersEngine {
         case databaseError
     }
     
-    private let storage: UserStorageDataProvider
+    private let storage: UserStorageProvider
     
     @Published var localUsers: [UserData] = []
     
-    init(storage: UserStorageDataProvider) {
+    init(storage: UserStorageProvider) {
         self.storage = storage
         localUsers = getUsersFromStorage()
     }
@@ -21,8 +21,8 @@ final class UsersEngine {
 extension UsersEngine {
     func saveUser(withData userData: UserData) throws -> Result<Void, Error> {
         do {
-            guard try storage.checkIfAlreadyExists(withEmail: userData.email) else {
-                try storage.save(withData: userData)
+            guard try storage.exists(with: userData.email) else {
+                try storage.save(with: userData)
                 localUsers.append(userData)
                 return .success(())
             }
@@ -41,7 +41,7 @@ extension UsersEngine {
     
     func deleteUser(withEmail email: String) throws {
         localUsers.removeAll { $0.email == email }
-        try storage.delete(withEmail: email)
+        try storage.delete(with: email)
     }
 }
 

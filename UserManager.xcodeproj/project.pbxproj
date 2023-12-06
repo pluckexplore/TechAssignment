@@ -25,6 +25,11 @@
 		CEBB3E002AFE5AE6009A9C5A /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = CEBB3DFF2AFE5AE6009A9C5A /* SwiftMessages */; };
 		CECDB1F92AFCDC7300E7A24A /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDB1F82AFCDC7300E7A24A /* DIContainer.swift */; };
 		CECDB1FB2AFCDCC700E7A24A /* DIContainerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDB1FA2AFCDCC700E7A24A /* DIContainerConfig.swift */; };
+		CEDC1D972B2097FF00FCE1BC /* FetchRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D962B2097FF00FCE1BC /* FetchRequestBuilder.swift */; };
+		CEDC1D992B2098D500FCE1BC /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D982B2098D500FCE1BC /* StorageProvider.swift */; };
+		CEDC1D9B2B2098FF00FCE1BC /* StorageProviderTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D9A2B2098FF00FCE1BC /* StorageProviderTask.swift */; };
+		CEDC1D9E2B2099B500FCE1BC /* UserStorageProviderTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D9D2B2099B500FCE1BC /* UserStorageProviderTask.swift */; };
+		CEDC1DA02B209A8000FCE1BC /* StorageProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1D9F2B209A8000FCE1BC /* StorageProviderError.swift */; };
 		CEE1B6D82B1D605100010888 /* UserStorageDataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1B6D72B1D605100010888 /* UserStorageDataProviderMock.swift */; };
 		CEE1B6DA2B1D612F00010888 /* UserStorageDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1B6D92B1D612F00010888 /* UserStorageDataProviderTests.swift */; };
 		CEEBF0BB2AFBA10D006F86CE /* NetworkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */; };
@@ -40,7 +45,7 @@
 		CEF141F22AFA809300309980 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF141F02AFA809300309980 /* LaunchScreen.storyboard */; };
 		CEF141FF2AFA845600309980 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEF141FD2AFA845600309980 /* DataModel.xcdatamodeld */; };
 		CEF142012AFA84DF00309980 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF142002AFA84DF00309980 /* CoreDataStack.swift */; };
-		CEF142032AFA84FA00309980 /* UserStorageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF142022AFA84FA00309980 /* UserStorageDataProvider.swift */; };
+		CEF142032AFA84FA00309980 /* UserStorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF142022AFA84FA00309980 /* UserStorageProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +89,11 @@
 		CEBB3DFC2AFE5AA6009A9C5A /* SimpleMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMessage.swift; sourceTree = "<group>"; };
 		CECDB1F82AFCDC7300E7A24A /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		CECDB1FA2AFCDCC700E7A24A /* DIContainerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainerConfig.swift; sourceTree = "<group>"; };
+		CEDC1D962B2097FF00FCE1BC /* FetchRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRequestBuilder.swift; sourceTree = "<group>"; };
+		CEDC1D982B2098D500FCE1BC /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
+		CEDC1D9A2B2098FF00FCE1BC /* StorageProviderTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProviderTask.swift; sourceTree = "<group>"; };
+		CEDC1D9D2B2099B500FCE1BC /* UserStorageProviderTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorageProviderTask.swift; sourceTree = "<group>"; };
+		CEDC1D9F2B209A8000FCE1BC /* StorageProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProviderError.swift; sourceTree = "<group>"; };
 		CEE1B6D72B1D605100010888 /* UserStorageDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorageDataProviderMock.swift; sourceTree = "<group>"; };
 		CEE1B6D92B1D612F00010888 /* UserStorageDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorageDataProviderTests.swift; sourceTree = "<group>"; };
 		CEEBF0BA2AFBA10D006F86CE /* NetworkDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataProvider.swift; sourceTree = "<group>"; };
@@ -101,7 +111,7 @@
 		CEF141F32AFA809300309980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEF141FE2AFA845600309980 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		CEF142002AFA84DF00309980 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		CEF142022AFA84FA00309980 /* UserStorageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorageDataProvider.swift; sourceTree = "<group>"; };
+		CEF142022AFA84FA00309980 /* UserStorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorageProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,9 +173,22 @@
 		CED0E4DD2B18C45A00C94D77 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				CEF142022AFA84FA00309980 /* UserStorageDataProvider.swift */,
+				CEDC1D962B2097FF00FCE1BC /* FetchRequestBuilder.swift */,
+				CEDC1D982B2098D500FCE1BC /* StorageProvider.swift */,
+				CEDC1D9F2B209A8000FCE1BC /* StorageProviderError.swift */,
+				CEDC1D9A2B2098FF00FCE1BC /* StorageProviderTask.swift */,
+				CEDC1D9C2B20998400FCE1BC /* User */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		CEDC1D9C2B20998400FCE1BC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CEDC1D9D2B2099B500FCE1BC /* UserStorageProviderTask.swift */,
+				CEF142022AFA84FA00309980 /* UserStorageProvider.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		CEEBF0B92AFB869A006F86CE /* Providers */ = {
@@ -395,10 +418,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB42DD02B003271008E3396 /* String.swift in Sources */,
+				CEDC1D9B2B2098FF00FCE1BC /* StorageProviderTask.swift in Sources */,
 				CEBB3DF52AFE5A33009A9C5A /* AddUserModuleBuilder.swift in Sources */,
 				CEEBF0C52AFBBBD9006F86CE /* UserListViewModel.swift in Sources */,
 				CEBB3DF92AFE5A6E009A9C5A /* AddUserViewController.swift in Sources */,
 				CEEBF0C82AFBBC5F006F86CE /* ReusableCell.swift in Sources */,
+				CEDC1D9E2B2099B500FCE1BC /* UserStorageProviderTask.swift in Sources */,
 				CEF141FF2AFA845600309980 /* DataModel.xcdatamodeld in Sources */,
 				CEB75A312AFFAD6300C85FC5 /* UserListDataSource.swift in Sources */,
 				CEF141E62AFA809100309980 /* AppDelegate.swift in Sources */,
@@ -406,8 +431,9 @@
 				CEBB3DFD2AFE5AA6009A9C5A /* SimpleMessage.swift in Sources */,
 				CEB75A2E2AFF710500C85FC5 /* User.swift in Sources */,
 				CEBB3DF72AFE5A4D009A9C5A /* AddUserModel.swift in Sources */,
-				CEF142032AFA84FA00309980 /* UserStorageDataProvider.swift in Sources */,
+				CEF142032AFA84FA00309980 /* UserStorageProvider.swift in Sources */,
 				CECDB1F92AFCDC7300E7A24A /* DIContainer.swift in Sources */,
+				CEDC1D972B2097FF00FCE1BC /* FetchRequestBuilder.swift in Sources */,
 				CEB42DCE2B003219008E3396 /* UITableView.swift in Sources */,
 				CEBB3DF02AFE5420009A9C5A /* Router.swift in Sources */,
 				CEF142012AFA84DF00309980 /* CoreDataStack.swift in Sources */,
@@ -419,8 +445,10 @@
 				CEB42DD22B003291008E3396 /* NSPredicate.swift in Sources */,
 				CEEBF0CA2AFBC203006F86CE /* UserListModuleBuilder.swift in Sources */,
 				CEEBF0C02AFBBB5F006F86CE /* UserListViewController.swift in Sources */,
+				CEDC1D992B2098D500FCE1BC /* StorageProvider.swift in Sources */,
 				CEEBF0CC2AFBC43B006F86CE /* UserListModel.swift in Sources */,
 				CEF141E82AFA809100309980 /* SceneDelegate.swift in Sources */,
+				CEDC1DA02B209A8000FCE1BC /* StorageProviderError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

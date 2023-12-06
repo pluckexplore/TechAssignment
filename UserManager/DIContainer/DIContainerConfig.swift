@@ -9,7 +9,7 @@ enum DIContainerConfig {
                 storeType: .onDisk
             )
         )
-        let storage = UserStorageDataProvider(coreDataStack: stack)
+        let storage = UserStorageProvider(coreDataStack: stack)
         let engine = UsersEngine(storage: storage)
         container.register(type: UsersEngine.self, component: engine)
     }
