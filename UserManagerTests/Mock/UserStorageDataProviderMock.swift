@@ -1,7 +1,7 @@
 import Foundation
 @testable import UserManager
 
-final class UserStorageDataProviderMock: UserStorageDataProvider {
+final class UserStorageProviderMock: UserStorageProvider {
     convenience init() {
         let stack = CoreDataStack(
             configuration: CoreDataStackConfiguration(

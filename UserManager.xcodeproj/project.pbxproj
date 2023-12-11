@@ -134,10 +134,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE8DEE212B06590B00D77DAE /* UserManagerTests */ = {
+		CE3550D02B27161400F99205 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
 				CEE1B6D72B1D605100010888 /* UserStorageDataProviderMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		CE8DEE212B06590B00D77DAE /* UserManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE3550D02B27161400F99205 /* Mock */,
 				CEE1B6D92B1D612F00010888 /* UserStorageDataProviderTests.swift */,
 			);
 			path = UserManagerTests;

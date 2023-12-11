@@ -14,14 +14,31 @@ class UserStorageProvider {
     }
 }
 
+extension UserStorageProvider {
+    func exists(with email: String) throws -> Bool {
+        do {
+            let fetchRequest = try UserStorageProviderTask.fetchWithEmail(email).taskRequest()
+            let count = try context.count(for: fetchRequest)
+            return count > 0
+        } catch {
+            throw StorageProviderError.fetchFailed
+        }
+    }
+}
+
 extension UserStorageProvider: StorageProvider {
+    
     typealias T = User
     
-    func save(with attribute: UserData) throws {
+    typealias SaveTaskAttributes = UserData
+    typealias FetchTaskAttribute = String
+    typealias DeleteTaskAttribute = String
+    
+    func save(with data: UserData) throws {
         do {
             let user = User(context: childContext)
-            user.name = attribute.name
-            user.email = attribute.email
+            user.name = data.name
+            user.email = data.email
             try childContext.save()
             try saveContext()
         } catch {
@@ -39,21 +56,21 @@ extension UserStorageProvider: StorageProvider {
         }
     }
     
-    func exists(with attribute: String) throws -> Bool {
+    func fetch(with email: String) throws -> User {
         do {
-            let fetchRequest = try UserStorageProviderTask.exists(email: attribute).taskRequest()
-            let count = try context.count(for: fetchRequest)
-            return count > 0
+            let fetchRequest = try UserStorageProviderTask.fetchWithEmail(email).taskRequest()
+            guard let user = try context.fetch(fetchRequest).first else {
+                throw StorageProviderError.fetchFailed
+            }
+            return user
         } catch {
             throw StorageProviderError.fetchFailed
         }
     }
     
-    func delete(with attribute: String) throws {
+    func delete(with email: String) throws {
         do {
-            guard let user = try getUser(byEmail: attribute) else {
-                throw StorageProviderError.fetchFailed
-            }
+            let user = try fetch(with: email)
             context.delete(user)
             try saveContext()
         } catch {
@@ -68,18 +85,6 @@ private extension UserStorageProvider {
             try context.save()
         } catch {
             throw StorageProviderError.savingFailed
-        }
-    }
-
-    func getUser(byEmail email: String) throws -> User? {
-        do {
-            let request = User.fetchRequest() as NSFetchRequest
-            request.predicate = NSPredicate(format: "email == %@", email)
-            request.fetchLimit = 1
-            let user = try context.fetch(request)
-            return user.first
-        } catch {
-            throw StorageProviderError.fetchFailed
         }
     }
 }

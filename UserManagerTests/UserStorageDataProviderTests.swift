@@ -3,10 +3,10 @@ import XCTest
 
 final class UserStorageDataProviderTests: XCTestCase {
     
-    var provider: UserStorageDataProviderMock!
+    var provider: UserStorageProviderMock!
     
     override func setUpWithError() throws {
-        provider = UserStorageDataProviderMock()
+        provider = UserStorageProviderMock()
     }
     
     override func tearDownWithError() throws {
@@ -18,7 +18,7 @@ final class UserStorageDataProviderTests: XCTestCase {
         let email = name.getRandomEmail(currentStringAsUsername: true)
         let userData = UserData(name: name, email: email)
         
-        try provider.save(withData: userData)
+        try provider.save(with: userData)
         let localUsers = try provider.fetchAll()
         
         let isSaved = localUsers.contains {
@@ -32,8 +32,8 @@ final class UserStorageDataProviderTests: XCTestCase {
         let email = name.getRandomEmail(currentStringAsUsername: true)
         let userData = UserData(name: name, email: email)
         
-        try provider.save(withData: userData)
-        try provider.delete(withEmail: email)
+        try provider.save(with: userData)
+        try provider.delete(with: email)
         let localUsers = try provider.fetchAll()
         
         let isDeleted = !localUsers.contains {
@@ -47,9 +47,9 @@ final class UserStorageDataProviderTests: XCTestCase {
         let email = name.getRandomEmail(currentStringAsUsername: true)
         let userData = UserData(name: name, email: email)
         
-        try provider.save(withData: userData)
-        if try !provider.checkIfAlreadyExists(withEmail: email) {
-            try provider.save(withData: userData)
+        try provider.save(with: userData)
+        if try !provider.exists(with: email) {
+            try provider.save(with: userData)
         }
         let localUsers = try provider.fetchAll()
         
@@ -131,10 +131,10 @@ final class UserStorageDataProviderTests: XCTestCase {
 private extension UserStorageDataProviderTests {
     func applyChanges(usersToSave toSave: [UserData], usersToDeleteByEmails toDeleteBy: [String]) throws {
         for user in toSave {
-            try provider.save(withData: user)
+            try provider.save(with: user)
         }
         for email in toDeleteBy {
-            try provider.delete(withEmail: email)
+            try provider.delete(with: email)
         }
     }
     
